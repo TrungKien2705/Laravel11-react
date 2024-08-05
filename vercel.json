@@ -2,18 +2,26 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+        "api/index.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
     },
+    "outputDirectory": "public",
     "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
         {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
     ],
     "env": {
+        "CI": "false",
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourproductionurl.com",
+        "APP_URL": "https://hancity-web.vercel.app/",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
