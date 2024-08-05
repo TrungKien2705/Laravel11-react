@@ -3,8 +3,15 @@
     "framework": null,
     "builds": [
         {
-            "src": "Dockerfile",
-            "use": "@vercel/docker"
+            "src": "build.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "public"
+            }
+        },
+        {
+            "src": "public/index.php",
+            "use": "@vercel/php"
         }
     ],
     "outputDirectory": "public",
