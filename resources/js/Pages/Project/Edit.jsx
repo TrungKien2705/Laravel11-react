@@ -10,6 +10,8 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
 
 function Edit({ auth, project }) {
+    console.log(project);
+
     function convertDate(date) {
         // Tách ngày, tháng và năm từ chuỗi ngày
         var parts = date.split("/");
@@ -28,7 +30,6 @@ function Edit({ auth, project }) {
     function pad(s) {
         return s < 10 ? "0" + s : s;
     }
-    console.log(project);
 
     const { data, setData, post, errors, reset } = useForm({
         image: "",
